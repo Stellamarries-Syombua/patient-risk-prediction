@@ -93,7 +93,7 @@ A user-friendly web application was built using **Streamlit** for real-time pati
 
 This project highlights how data science can support preventive healthcare while maintaining interpretability and clinical relevance.
 
-## 🛠️ Technologies Used
+## Technologies Used
 
 - **Languages**: Python, Jupyter Notebooks
 - **Data Science**: Pandas, NumPy, Scikit-learn, SHAP
@@ -101,7 +101,7 @@ This project highlights how data science can support preventive healthcare while
 - **Deployment**: Streamlit
 - **Version Control**: Git & GitHub
 
-## 🚀 How to Use This Repository
+## How to Use This Repository
 
 1. Clone the repo:
    ```bash
