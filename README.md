@@ -1,14 +1,14 @@
-# 🏥 Patient Risk Prediction System
+# Patient Risk Prediction System
 
 **Predicting Diabetes Risk in Patients using Clinical Data and Machine Learning**
 
 ---
 
-## 📝 Abstract
+## Abstract
 
 This project develops and evaluates a machine learning pipeline to predict the risk of diabetes in patients based on clinical and demographic features from the Pima Indians Diabetes Dataset. The study emphasizes model interpretability (using SHAP) to support clinical decision-making. The best-performing model achieved a ROC-AUC of 0.821, with a clinically optimized threshold to maximize early detection of at-risk patients.
 
-## 🎯 Objectives
+## Objectives
 
 - To perform comprehensive exploratory data analysis on patient clinical measurements.
 - To build, train, and compare multiple machine learning models for binary diabetes classification.
@@ -16,7 +16,7 @@ This project develops and evaluates a machine learning pipeline to predict the r
 - To provide model interpretability using SHAP values for transparency and trust in healthcare settings.
 - To develop an interactive web application for real-time risk prediction.
 
-## 📊 Dataset Description
+## Dataset Description
 
 The analysis uses the **Pima Indians Diabetes Database**, consisting of 768 female patients of Pima Indian heritage (age ≥ 21 years). The dataset includes the following features:
 
@@ -30,7 +30,7 @@ The analysis uses the **Pima Indians Diabetes Database**, consisting of 768 fema
 - **Age**: Age in years
 - **Outcome**: Target variable (0 = No diabetes, 1 = Diabetes)
 
-## 🔬 Methods
+## Methods
 
 ### 1. Data Preprocessing
 - Identified and handled zero values as missing data in Glucose, BloodPressure, BMI, SkinThickness, and Insulin.
@@ -75,7 +75,7 @@ A user-friendly web application was built using **Streamlit** for real-time pati
 **Key Clinical Insight**: Lowering the classification threshold to **0.35** significantly improved recall, allowing better identification of patients who need early intervention.
 
 **Top Predictive Features (based on SHAP analysis)**:
-1. **Glucose** — Most influential feature (higher levels strongly increase risk)
+1. **Glucose** : Most influential feature (higher levels strongly increase risk)
 2. **BMI**
 3. **Age**
 4. **DiabetesPedigreeFunction**
