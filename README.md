@@ -1,98 +1,108 @@
 # 🏥 Patient Risk Prediction System
 
-**An end-to-end Machine Learning pipeline for predicting diabetes risk in patients using clinical data.**
+**Predicting Diabetes Risk in Patients using Clinical Data and Machine Learning**
 
-This project demonstrates a complete data science workflow — from exploratory data analysis to model deployment — built with a strong emphasis on **clinical interpretability** and practical utility.
+---
 
-![Streamlit App](https://github.com/Stellamarries-Syombua/patient-risk-prediction/blob/master/outputs/figures/plot_01_class_distribution.png)
+## 📝 Abstract
 
-## ✨ Live Demo
+This project develops and evaluates a machine learning pipeline to predict the risk of diabetes in patients based on clinical and demographic features from the Pima Indians Diabetes Dataset. The study emphasizes model interpretability (using SHAP) to support clinical decision-making. The best-performing model achieved a ROC-AUC of 0.821, with a clinically optimized threshold to maximize early detection of at-risk patients.
 
-Try the interactive web app:  
-**[🚀 Open Streamlit App](https://patient-risk-prediction.streamlit.app/)** *(if deployed)*
+## 🎯 Objectives
 
-Or run it locally (instructions below).
+- To perform comprehensive exploratory data analysis on patient clinical measurements.
+- To build, train, and compare multiple machine learning models for binary diabetes classification.
+- To optimize the decision threshold with a focus on clinical recall (minimizing missed high-risk cases).
+- To provide model interpretability using SHAP values for transparency and trust in healthcare settings.
+- To develop an interactive web application for real-time risk prediction.
 
-## 📋 Project Overview
+## 📊 Dataset Description
 
-This repository contains a comprehensive analysis of the **Pima Indians Diabetes Database**. The goal is to build a reliable model that can help healthcare professionals identify patients at high risk of diabetes, with transparent explanations for each prediction.
+The analysis uses the **Pima Indians Diabetes Database**, consisting of 768 female patients of Pima Indian heritage (age ≥ 21 years). The dataset includes the following features:
 
-### Key Highlights
-- **Dataset**: Pima Indians Diabetes (768 records, 9 features)
-- **Best Model**: Gradient Boosting (ROC-AUC: **0.821**)
-- **Clinical Threshold**: Optimized at **0.35** (prioritizing recall)
-- **Explainability**: Full SHAP analysis for model transparency
-- **Deployment**: Streamlit web application
+- **Pregnancies**: Number of times pregnant
+- **Glucose**: Plasma glucose concentration (mg/dL)
+- **BloodPressure**: Diastolic blood pressure (mm Hg)
+- **SkinThickness**: Triceps skin fold thickness (mm)
+- **Insulin**: 2-Hour serum insulin (mu U/ml)
+- **BMI**: Body mass index (kg/m²)
+- **DiabetesPedigreeFunction**: Diabetes pedigree function (genetic risk score)
+- **Age**: Age in years
+- **Outcome**: Target variable (0 = No diabetes, 1 = Diabetes)
 
-## 🗂️ Repository Structure
-patient-risk-prediction/
-├── notebooks/                  # Jupyter notebooks (step-by-step workflow)
-│   ├── 01 data_loading_overview.ipynb
-│   ├── 02 exploratory_data_analysis.ipynb
-│   ├── 03 preprocessing_pipeline.ipynb
-│   ├── 04 model_building_evaluation.ipynb
-│   └── 05 explainability_final_report.ipynb
-├── data/
-│   └── diabetes.csv            # Raw dataset
-├── outputs/
-│   ├── figures/                # All generated plots
-│   └── patient_risk_prediction_report.txt
-├── app.py                      # Streamlit web application
-├── requirements.txt
-└── README.md
-text
+## 🔬 Methods
 
-## 📊 Dataset
+### 1. Data Preprocessing
+- Identified and handled zero values as missing data in Glucose, BloodPressure, BMI, SkinThickness, and Insulin.
+- Applied median imputation for missing values.
+- Feature scaling using StandardScaler.
+- Train-test split (80/20) with stratification.
 
-The dataset contains diagnostic measurements for female patients of Pima Indian heritage who are at least 21 years old.
+### 2. Exploratory Data Analysis
+- Univariate and bivariate analysis
+- Correlation matrices
+- Distribution plots and boxplots for outlier detection
+- Class distribution analysis (imbalanced dataset)
 
-**Features**:
-- `Pregnancies` — Number of times pregnant
-- `Glucose` — Plasma glucose concentration (2h oral glucose tolerance test)
-- `BloodPressure` — Diastolic blood pressure (mmHg)
-- `SkinThickness` — Triceps skinfold thickness (mm)
-- `Insulin` — 2-hour serum insulin (mu U/ml)
-- `BMI` — Body mass index
-- `DiabetesPedigreeFunction` — Genetic risk score
-- `Age` — Age in years
-- `Outcome` — Target (1 = Diabetes, 0 = No Diabetes)
+### 3. Model Development
+Multiple classification algorithms were evaluated:
+- Logistic Regression
+- Random Forest
+- Gradient Boosting (XGBoost / LightGBM)
+- Support Vector Machine
+- K-Nearest Neighbors
 
-## 🔄 Workflow
+Models were tuned using cross-validation. Performance was measured using Accuracy, Precision, Recall, F1-score, and ROC-AUC.
 
-1. **Data Loading & Quality Audit**
-2. **Exploratory Data Analysis** (visualizations, correlations, outliers)
-3. **Preprocessing** (handling zeros as missing, imputation, scaling)
-4. **Model Training & Evaluation** (multiple classifiers, cross-validation)
-5. **Threshold Optimization** (clinical recall focus)
-6. **Explainability** (SHAP values)
-7. **Risk Tier Segmentation**
-8. **Web Deployment** (Streamlit)
+### 4. Interpretability Analysis
+SHAP (SHapley Additive exPlanations) values were computed to understand feature contributions to individual predictions.
 
-## 🚀 How to Run Locally
+### 5. Deployment
+A user-friendly web application was built using **Streamlit** for real-time patient risk assessment.
 
-### 1. Clone the repository
-```bash
-git clone https://github.com/Stellamarries-Syombua/patient-risk-prediction.git
-cd patient-risk-prediction
-2. Install dependencies
-Bashpip install -r requirements.txt
-3. Run the Streamlit app
-Bashstreamlit run app.py
-📈 Model Performance
-MetricScoreROC-AUC0.821Accuracy75.3%F1 Score0.627Precision~0.58Recall~0.68
-Note: Threshold lowered to 0.35 to improve detection of at-risk patients.
-🔍 Interpretability
-The model uses SHAP (SHapley Additive exPlanations) to show exactly how each clinical feature influences individual risk predictions. This is crucial for building trust in healthcare AI applications.
-🛠️ Technologies Used
+## 📈 Results & Interpretation
 
-Python — Core language
-Pandas / NumPy — Data manipulation
-Scikit-learn — Modeling & evaluation
-SHAP — Model explainability
-Matplotlib / Seaborn — Visualization
-Streamlit — Interactive web app
+### Model Performance (Best Model: Gradient Boosting)
 
-🙋‍♀️ Author
-Stellamaries Syombua
-Healthcare Data Analyst & Biostatistician
-Passionate about using data science to improve patient outcomes.
+| Metric          | Value     | Interpretation |
+|-----------------|-----------|----------------|
+| ROC-AUC         | 0.821     | Good discriminatory ability |
+| Accuracy        | 75.3%     | Solid overall performance |
+| Recall          | 0.68      | Improved with threshold tuning |
+| Precision       | ~0.58     | Moderate |
+| F1 Score        | 0.627     | Balanced metric |
+
+**Key Clinical Insight**: Lowering the classification threshold to **0.35** significantly improved recall, allowing better identification of patients who need early intervention.
+
+**Top Predictive Features (based on SHAP analysis)**:
+1. **Glucose** — Most influential feature (higher levels strongly increase risk)
+2. **BMI**
+3. **Age**
+4. **DiabetesPedigreeFunction**
+5. **Pregnancies**
+
+## 🏁 Conclusions & Recommendations
+
+- The developed model demonstrates strong potential as a clinical decision support tool.
+- Glucose level remains the dominant risk factor, consistent with medical literature.
+- SHAP-based explanations enhance model trustworthiness for healthcare professionals.
+- Future work could include:
+  - Integration of additional clinical variables (e.g., HbA1c)
+  - External validation on diverse populations
+  - Prospective clinical trials
+
+This project highlights how data science can support preventive healthcare while maintaining interpretability and clinical relevance.
+
+## 🛠️ Technologies Used
+
+- **Languages**: Python, Jupyter Notebooks
+- **Data Science**: Pandas, NumPy, Scikit-learn, SHAP
+- **Visualization**: Matplotlib, Seaborn
+- **Deployment**: Streamlit
+- **Version Control**: Git & GitHub
+
+## 🚀 How to Use This Repository
+
+1. Clone the repo:
+   ```bash
+   git clone https://github.com/Stellamarries-Syombua/patient-risk-prediction.git
