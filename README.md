@@ -60,7 +60,7 @@ SHAP (SHapley Additive exPlanations) values were computed to understand feature 
 ### 5. Deployment
 A user-friendly web application was built using **Streamlit** for real-time patient risk assessment.
 
-## 📈 Results & Interpretation
+## Results & Interpretation
 
 ### Model Performance (Best Model: Gradient Boosting)
 
@@ -81,7 +81,7 @@ A user-friendly web application was built using **Streamlit** for real-time pati
 4. **DiabetesPedigreeFunction**
 5. **Pregnancies**
 
-## 🏁 Conclusions & Recommendations
+## Conclusions & Recommendations
 
 - The developed model demonstrates strong potential as a clinical decision support tool.
 - Glucose level remains the dominant risk factor, consistent with medical literature.
